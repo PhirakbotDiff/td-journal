@@ -1,0 +1,33 @@
+Build a personal trading web app as a single-page application using React and Tailwind CSS. The app should support manual trade journaling and basic portfolio tracking with the following features:
+
+Core Features:
+
+Dashboard — Overview of total portfolio value, daily P&L, win rate, and a cumulative equity curve chart.
+Trade Journal — Log trades with fields: symbol, direction (long/short), entry price, exit price, quantity, date/time, fees, and notes. Calculate P&L and R-multiple automatically.
+Open Positions — Track currently open trades with unrealized P&L (user inputs current price manually or via a live price fetch).
+Trade History — Filterable/sortable table of closed trades with search by symbol or date range.
+Analytics Page — Charts showing: win/loss ratio, average win vs average loss, best/worst trades, P&L by symbol, and monthly performance heatmap.
+Settings — Set default currency, starting capital, and risk per trade percentage.
+
+Technical Requirements:
+
+Use localStorage or IndexedDB for persistent storage (no backend required).
+All data stays client-side only.
+Use recharts for charts.
+Responsive layout that works on desktop and tablet.
+Dark mode by default.
+
+Nice to Have:
+
+CSV import/export of trade history.
+A risk calculator tool (position size based on account size, stop loss, and risk %).
+Tag trades by strategy (e.g., breakout, mean reversion) and filter analytics by tag.
+
+Deployment:
+
+Package the app to run locally via Docker:
+
+Use a multi-stage Dockerfile — build the React app with Node, then serve the static output with nginx:alpine.
+Include a docker-compose.yml with a single service, mapping port 3000 on the host to 80 in the container.
+Add a .dockerignore to exclude node_modules and build artifacts.
+The app should be startable with just docker compose up --build and accessible at http://localhost:3000.
